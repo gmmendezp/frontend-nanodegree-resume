@@ -9,9 +9,16 @@ h3,
 h4,
 h5,
 h6 {
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   font-family: "Roboto", sans-serif;
+}
+
+@media only screen and (min-width: 1400px) {
+  #main {
+    width: 1400px;
+    margin: 0 auto;
+  }
 }
 
 .clear-fix {
@@ -34,7 +41,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #36648b;
   line-height: 29px;
   padding: 10px;
 }
@@ -42,7 +49,7 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000;
+  color: #999;
   line-height: 22px;
 }
 
@@ -100,7 +107,7 @@ a {
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #f3f3f3;
   display: none;
 }
 
@@ -124,12 +131,12 @@ a {
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  background-color: #999;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #36648b;
 }
 
 .flex-box {
@@ -158,6 +165,7 @@ ul {
 
 img {
   padding: 10px;
+  vertical-align: top;
 }
 
 span {
