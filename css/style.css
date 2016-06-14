@@ -46,13 +46,6 @@ h2 {
   padding: 10px;
 }
 
-h3 {
-  font-style: italic;
-  font-size: 20px;
-  color: #999;
-  line-height: 22px;
-}
-
 h4 {
   font-weight: bold;
   font-size: 14px;
@@ -65,7 +58,6 @@ h3,
 h4,
 h5 {
   padding:10px 5%;
-
 }
 
 
@@ -106,9 +98,17 @@ a {
   line-height: 28px;
 }
 
+h3 {
+  font-style: italic;
+  padding: 20px 5% 0;
+  font-size: 15px;
+  color: #555;
+  line-height: 22px;
+}
+
 #skills-h3 {
-  color: #f3f3f3;
-  display: none;
+  font-size: 20px;
+  color: #f5ae23;
 }
 
 .orange {
