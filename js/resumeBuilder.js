@@ -42,12 +42,12 @@ var bio = {
   "skills": [
     "HTML", "CSS", "Javascript", "File compression"
   ],
-  "bioPic": "images/rh.jpg",
+  "biopic": "images/rh.jpg",
   "display": function() {
     var name = HTMLheaderName.replaceData(this.name);
     var role = HTMLheaderRole.replaceData(this.role);
     var welcome = HTMLwelcomeMsg.replaceData(this.welcomeMessage);
-    var pic = HTMLbioPic.replaceData(this.bioPic);
+    var pic = HTMLbioPic.replaceData(this.biopic);
 
     $('#header').prepend([name, role]);
     $('#header').append([welcome, pic]);
@@ -55,7 +55,7 @@ var bio = {
     var formattedContacts = $.map(this.contacts, function(value, key){
       return formatAttr('contact', 'Generic', value).replace('%contact%', key);
     });
-    $('#topContacts').append(formattedContacts);
+    $("#footerContacts, #topContacts").append(formattedContacts);
 
     if(this.skills.length > 0) {
       $('#header').append(HTMLskillsStart);
@@ -72,7 +72,7 @@ var education = {
       "name": "University of Oklahoma",
       "location": "Oklahoma, US",
       "degree": "Bachelors",
-      "major": ["Information Technology"],
+      "majors": ["Information Technology"],
       "dates": "2011-2014",
       "url": "https://www.ou.edu/"
     }
@@ -81,11 +81,12 @@ var education = {
     {
       "title": "Front End Web Development Nanodegree",
       "school": "Udacity",
-      "dates": "2015",
-      "url": "https://www.udacity.com/degrees/front-end-web-developer-nanodegree--nd001"
+      "date": "2015",
+      "url": "https://www.udacity.com/degrees/front-end-web-developer" +
+        "-nanodegree--nd001"
     }
   ],
-  display: function() {
+  "display": function() {
     if(this.schools.length > 0) {
       this.schools.forEach(function(school) {
 
@@ -93,6 +94,7 @@ var education = {
 
         var formattedSchool = formatObject(school, 'school');
         formattedSchool.name = formattedSchool.name.replace('#', school.url);
+        formattedSchool.major = HTMLschoolMajor.replaceData(school.majors);
 
         $('.education-entry:last').append([
           formattedSchool.name + formattedSchool.degree,
@@ -111,11 +113,12 @@ var education = {
 
         var formattedCourse = formatObject(course, 'online');
         formattedCourse.url = HTMLonlineURL.replaceData(course.url);
+        formattedCourse.date = HTMLonlineDates.replaceData(course.date);
         formattedCourse.title = formattedCourse.title.replace('#', course.url);
 
         $('.education-entry:last').append([
           formattedCourse.title + formattedCourse.school,
-          formattedCourse.dates,
+          formattedCourse.date,
           formattedCourse.url
         ]);
       });
@@ -130,14 +133,16 @@ var work = {
       "title": "CEO/President",
       "location": "San Francisco, CA",
       "dates": "2013-2014",
-      "description": "Building an algorithm for artist to detect if their music was violating copy right infringement laws"
+      "description": "Building an algorithm for artist to detect if " +
+        "their music was violating copy right infringement laws"
     },
     {
       "employer": "Pied Piper",
       "title": "CEO/President",
       "location": "San Francisco, CA",
       "dates": "2013-2014",
-      "description": "Building an algorithm for artist to detect if their music was violating copy right infringement laws"
+      "description": "Building an algorithm for artist to detect if their" +
+        "music was violating copy right infringement laws"
     }
   ],
   display: function() {
@@ -163,7 +168,8 @@ var projects = {
     {
       "title": "Video compression for 3d media",
       "dates": "2014",
-      "description": "Innovative middle-out compression algorithm that changes the way we store data.",
+      "description": "Innovative middle-out compression algorithm that " +
+        "changes the way we store data.",
       "images": [
         "images/dilbert.jpg", "images/encoding-video.png"
       ]
@@ -194,10 +200,8 @@ var projects = {
 };
 
 
-$(function(){
-  bio.display();
-  work.display();
-  education.display();
-  projects.display();
-  $('#mapDiv').append(googleMap);
-})
+bio.display();
+work.display();
+education.display();
+projects.display();
+$('#mapDiv').append(googleMap);
