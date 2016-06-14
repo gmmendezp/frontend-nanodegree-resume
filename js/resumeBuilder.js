@@ -49,7 +49,8 @@ var bio = {
     var welcome = HTMLwelcomeMsg.replaceData(this.welcomeMessage);
     var pic = HTMLbioPic.replaceData(this.bioPic);
 
-    $('#header').prepend([name, role, welcome, pic]);
+    $('#header').prepend([name, role]);
+    $('#header').append([welcome, pic]);
 
     var formattedContacts = $.map(this.contacts, function(value, key){
       return formatAttr('contact', 'Generic', value).replace('%contact%', key);
@@ -192,9 +193,11 @@ var projects = {
   }
 };
 
-bio.display();
-work.display();
-education.display();
-projects.display();
 
-$('#mapDiv').append(googleMap);
+$(function(){
+  bio.display();
+  work.display();
+  education.display();
+  projects.display();
+  $('#mapDiv').append(googleMap);
+})
